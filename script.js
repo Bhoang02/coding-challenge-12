@@ -1,14 +1,13 @@
 // U89173488
 
-// script.js
+
 d3.csv("mock_stock_data.csv").then(data => {
-    // Parse data
+    
     data.forEach(d => {
         d.date = new Date(d.date);
         d.value = +d.value;
     });
 
-    // Populate stock select dropdown
     const stockNames = [...new Set(data.map(d => d.stock))];
     const stockSelect = d3.select("#stock-select");
     stockSelect.selectAll("option")
@@ -17,10 +16,10 @@ d3.csv("mock_stock_data.csv").then(data => {
         .append("option")
         .text(d => d);
 
-    // Initial visualization
+    
     updateVisualization(data);
 
-    // Event listeners for filtering
+   
     stockSelect.on("change", () => updateVisualization(data));
     d3.select("#start-date").on("change", () => updateVisualization(data));
     d3.select("#end-date").on("change", () => updateVisualization(data));
@@ -74,7 +73,7 @@ d3.csv("mock_stock_data.csv").then(data => {
             .attr("stroke-width", 1.5)
             .attr("d", line);
 
-        // Tooltip
+        
         const tooltip = d3.select("body").append("div").attr("class", "tooltip");
 
         svg.selectAll("dot")
@@ -92,5 +91,5 @@ d3.csv("mock_stock_data.csv").then(data => {
             })
             .on("mouseout", () => tooltip.style("display", "none"));
     }
-});
+})
 
