@@ -1,0 +1,22 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.controls {
+    margin: 20px;
+}
+
+#chart {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    display: none;
+}
